@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const number = 5;
+      const array = [1, 2, 3];
+      number = 10;
+      array.push(4);
+
+      console.log(number); /* biến được khai báo bằng const là hằng số và không thể thay đổi
+       giá trị sau khi đã được gán. Do đó khi cố gắng gán lại giá trị cho biến number, một lỗi sẽ xảy ra. */
+      console.log(array); // Nếu không có lỗi, sẽ in ra mảng sau khi đã thêm phần tử mới vào
+    </script>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function insertArray(arr1, arr2, n) {
+        if (n < 0 || n > arr1.length) {
+          console.log("Vị trí chèn không hợp lệ!");
+          return;
+        }
+        let result = [...arr1.slice(0, n),...arr2,...arr1.slice(n),
+        ];
+        return result;
+      }
+      let insert1 = insertArray([1, 2, 3, 7, 8], [4, 5, 6], 3);
+      console.log(insert1);
+
+      let insert2 = insertArray(["a", "b", "e", "f"], ["c", "d"], 2);
+      console.log(insert2);
+
+      let insert3 = insertArray([1, 2, 3], [4, 5, 6], 10);
+    </script>
+  </body>
+</html>

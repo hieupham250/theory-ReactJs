@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!--
+        toán tử spread ...
+        trong object chia làm 2 dạng clone
+        1. deep clone: sâu
+        - Deep clone là quá trình tạo ra một bản sao mới của đối tượng hoặc cấu trúc dữ liệu, trong đó 
+        không chỉ sao chép các giá trị của các trường dữ liệu mà còn sao chép cả các đối tượng con hoặc 
+        các thành phần con theo đối tượng ban đầu.
+        -  mỗi đối tượng con hoặc thành phần con cũng được sao chép đệ quy, nghĩa là nó không chỉ tạo ra 
+        một bản sao của chính đối tượng con mà còn tạo ra các bản sao của tất cả các đối tượng con trong đó.
+        - đảm bảo rằng dữ liệu bản sao không chia sẻ bất kỳ tham chiếu nào với dữ liệu ban đầu.
+        - sao chép sâu một đối tượng bằng cách sử dụng các phương thức JSON.parse() và JSON.stringify()
+
+        2. shaloww clone: nông
+        - Shallow clone chỉ sao chép các giá trị của các trường dữ liệu của đối tượng hoặc cấu trúc dữ liệu 
+        mà không sao chép các đối tượng con hoặc thành phần con.
+        - Nghĩa là, trong shallow clone, các đối tượng con chỉ được tham chiếu đến từ bản sao, chứ không phải
+        là các bản sao thực sự của chúng.
+        - Điều này có thể dẫn đến các vấn đề khi một trong các bản sao thay đổi dữ liệu, vì các thay đổi này 
+        cũng sẽ ảnh hưởng đến dữ liệu của đối tượng ban đầu hoặc bản sao khác.
+    -->
+    <script>
+      let obj1 = {
+        name: "hoa",
+      };
+      let obj2 = { ...obj1 };
+      obj1.name = "huệ";
+      console.log("obj2", obj2.name);
+      let number1 = [1];
+      let number2 = [1];
+      console.log(number1 == number2);
+      console.log(number1 === number2);
+      let arr1 = [1, 2, 3, 4];
+      let arr2 = [5, 6, 7];
+    </script>
+  </body>
+</html>

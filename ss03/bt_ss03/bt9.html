@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function mergeArrays(...arrays) {
+        let length = arrays[0].length;
+        let allSameLength = arrays.every((arr) => arr.length === length);
+
+        if (!allSameLength) {
+          console.log("Số lượng phần tử của các mảng không bằng nhau!");
+          return;
+        }
+        let result = [];
+        arrays[0].forEach((element, index) => {
+          let tempArray = [];
+          arrays.forEach((arr) => {
+            tempArray.push(arr[index]);
+          });
+          result.push(tempArray);
+        });
+        return result;
+      }
+      let example = mergeArrays([1, 2, 3], ["a", "b", "c"], [true, false, true]
+      );
+      console.log(example);
+    </script>
+  </body>
+</html>
