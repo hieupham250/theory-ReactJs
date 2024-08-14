@@ -1,0 +1,21 @@
+{
+  "user": [
+    {
+      "id": 1,
+      "name": "hùng"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "iphone"
+    }
+  ],
+  "comment": [
+    {
+      "id": 1,
+      "idUser": 1,
+      "productId": 1
+    }
+  ]
+}

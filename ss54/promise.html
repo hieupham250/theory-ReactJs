@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 
+        baasat đồng bộ
+        1. callback
+            - là hàm được truyền vào làm đối số của hàm khác
+            - khi nhiều hàm lồng nhau thì sẽ dẫn đến tình trạng callback hell
+        2. promise
+            - sinh ra ở phiên bản ES6(2015) để xử lý các tác vụ bất đồng bộ
+            - khi gặp các code dang callback hell khi xử lý với promise code nhìn gọn gàng hơn, dễ maintain
+            cách dùng:
+                1. khởi tạo promise bằng new Promise();
+                2. bên trong hàm tạo constructor object nhận vào 1 đối số là function
+                trong funciton này nhận vào 2 tham số (resolve, reject)
+                    + khi logic code thành công thì gọi resolve
+                    + khi logic code thất bại thì gọi reject
+                3. promise
+                    .then((data)=> console.log("data", data));
+                    .catch((err) => console.log("lỗi", err));
+        3. asyn-await
+     -->
+    <script>
+      //   setTimeout(() => {
+      //     console.log("thực hiện công việc thứ nhất");
+      //     // sau khi thực hiện cv 1 xong, việc thuw2 cần kq của việc 1
+      //     setTimeout(() => {
+      //       console.log("thực hiện công việc thứ 2");
+      //       setTimeout(() => {
+      //         console.log("thực hiện công việc thứ 3");
+      //       }, 1000);
+      //     }, 1000);
+      //   }, 1000);
+      let promise = new Promise((resolve, reject) => {
+        // resolve: giải quyết, thành công
+        // reject: từ chối, thất bại
+        // viết các logic code
+        // nếu như thành công thì gọi resolve
+        // nếu thất bại thì gọi reject
+        resolve([1, 2, 3, 4, 5]);
+        // reject("có lỗi");
+      });
+      promise
+        .then((data) => {
+          console.log("data", data);
+          return [1];
+        })
+        // khi có nhiều then thì then thứ 2 nhận vào kết quả của thằng then đầu
+        .then((data2) => {
+          console.log("data2", data2);
+        })
+        .catch((err) => console.log("lỗi", err));
+
+      let newPromise = new Promise((resolve, reject) => {
+        resolve();
+      });
+      newPromise
+        .then((data1) => {
+          return new Promise((resolve, reject) => {
+            setTimeout(() => {
+              console.log("1");
+              resolve();
+            }, 3000);
+          });
+        })
+        .then((data2) => {
+          return new Promise((resolve, reject) => {
+            setTimeout(() => {
+              console.log("2");
+              resolve();
+            }, 3000);
+          });
+        })
+        .then((data3) => {
+          setTimeout(() => {
+            console.log("3");
+          }, 3000);
+        });
+
+      function getData() {
+        let getData = fetch("https://jsonplaceholder.typicode.com/todos/1");
+        getData
+          .then((user) => user.json())
+          .then((data) => {
+            console.log("giá trị data lấy về", data);
+          })
+          .catch((err) => {
+            console.log("lỗi khi lấy về", err);
+          });
+      }
+      getData();
+
+      console.log("1111");
+      try {
+        console.log(a);
+      } catch (err) {
+        console.log("bug", err);
+      }
+      console.log("2222");
+    </script>
+  </body>
+</html>

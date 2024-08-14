@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 
+    async-await dùng để xử lý các tác vụ bất đồng bộ
+    sinh ra ở phiên bairn es7
+    thay vì dùng promise thì async-await giúp việc code gọn gàng hơn, nhanh gọn hơn
+    khi 1 fuction có từ khóa async đặt trước thì function đấy sẽ trở thnahf promise
+    
+    đối với promise khi bắt lỗi thì dùng .catch
+    đối với async-await thì để ắt lỗi thì phải dùng try-catch
+
+  -->
+    <script>
+      // async function async() {
+      //   await new Promise((resolve, reject) => {
+      //     console.log(3333);
+      //     setTimeout(() => {
+      //       console.log(1111);
+      //       resolve();
+      //     }, 5000);
+      //   });
+      //   console.log(2222);
+      // }
+      // console.log(async());
+
+      //   - ví dụ có tác vụ 1 thực hiện mất 5s
+      // - tác vụ thứ 2 mất 10s
+      // - nếu chạy 2 tác vụ thì mất 15s
+      // promise.all() khi sử lý 2 tác vụ này mất 10s thôi
+      const tacvu1 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          console.log(1111);
+          resolve();
+        }, 5000);
+      });
+      const tacvu2 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          console.log(1111);
+          resolve();
+        }, 10000);
+      });
+
+      Promise.all([tacvu1, tacvu2]).then((x) => {
+        console.log(x);
+      });
+
+      function task1() {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve([1]);
+          }, 3000);
+        });
+      }
+      function task2() {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve([3]);
+          }, 3000);
+        });
+      }
+      // đợi function task1 và task2 chạy xong thì cộng 2 kq lại: [1,3]
+      async function result() {
+        let result1 = await task1();
+        console.log(result1);
+        let result2 = await task2();
+        console.log([...result1, ...result2]);
+      }
+      result();
+      // dùng fetch là phương thức dùng để call api lấy dữ liệu
+      async function getData() {
+        await fetch("https://jsonplaceholder.typicode.com/todos/1")
+          .then((data) => data.json())
+          .then((data) => {
+            console.log(data);
+          });
+        // lệnh trên để lấ data
+
+        // sau khi lấy data ở trong db thì trả về client
+        console.log("lấy data đi xử lý");
+      }
+      getData();
+    </script>
+  </body>
+</html>

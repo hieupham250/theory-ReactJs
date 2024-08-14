@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 
+        đồng bộ và bất đồng bộ
+        Đồng bộ: Synchronous
+        Bất đồng bộ: Asynchronous
+        Javascript là 1 ngôn ngữ đơn luồng, tức là 1 chạy luồng duy nhất
+        luồng code chạy, chạy từ trái qua phải ==> từ trên xuống dưới
+        khi đa luồng cái luồng nó sẽ chia sẻ tài nguyên lẫn nhau, ảnh hưởng đến logic
+        code lẫn nhau cho nên tư duy ban đầu của JS đơn luồng single-thread
+        khi gặp các tác vụ cần thời gian xử lý (chọc vào database, gửi request lên sever, đọc file, ghi file,..)
+        thì Js nó sẽ không đợi các tác vụ này xử lý xong rồi mới đến các tác vụ khác
+
+        3 cách để giải quyết các tác vụ bất đồng bộ
+        1. Callback là gì
+            - là hàm được truyền vào làm đối số của hàm khác
+
+        2. Promise
+        3. Asyn-await
+     -->
+    <script>
+      let sdt;
+      function XinSdt(callback) {
+        console.log("hoàng gọi cho quỳnh xin số phương anh");
+        console.log("quỳnh bảo đợi tí để tìm số");
+        setTimeout(() => {
+          sdt = 123456;
+          callback(sdt);
+        }, 3000);
+      }
+
+      XinSdt(goiKhiCoSoPA);
+      // dùng callback để giải quyết vấn đề
+      // tạo hàm khi nào có số thì gọi
+      function goiKhiCoSoPA(std) {
+        console.log(`hoàng gọi cho phuong anh theo số ${sdt}`);
+      }
+      // hàm find, findIdex, fillter nhận về tham sso callback
+      // hàm map
+      let arr = [1, 2, 3, 4, 5];
+      let result = arr.map((item) => item * 2);
+      console.log(result);
+      // tạo 1 hàm như hàm map
+      function cusTomMap(arr, callback) {
+        let resulArr = [];
+        for (let i of arr) {
+          resulArr.push(callback(i));
+        }
+        return resulArr;
+      }
+      let arr2 = [1, 2, 3, 4, 5];
+      console.log(
+        "giá trị mảng mới sau khi dùng customap",
+        cusTomMap(arr2, (item) => item * 2)
+      );
+    </script>
+  </body>
+</html>

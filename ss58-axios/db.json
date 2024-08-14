@@ -1,0 +1,34 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "minh quang",
+      "address": "Hà nội",
+      "age": 18
+    },
+    {
+      "name": "xuân quỳnh",
+      "id": 3,
+      "address": "Hà nội",
+      "age": 21
+    },
+    {
+      "name": "xuân",
+      "id": 4,
+      "address": "Hà nội",
+      "age": 22
+    },
+    {
+      "name": "hoa",
+      "id": 5,
+      "address": "Hà nội",
+      "age": 16
+    },
+    {
+      "name": "hồng",
+      "id": 6,
+      "address": "bắc ninh",
+      "age": 17
+    }
+  ]
+}
