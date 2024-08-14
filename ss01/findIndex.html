@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+            tìm kiếm vị trí phân tử thỏa mãn
+            nếu có trả về vị trí
+            nếu không trả về -1
+        */
+      let users = [
+        {
+          id: 5,
+          name: "dũng",
+        },
+        {
+          id: 6,
+          name: "hoàng",
+        },
+        {
+          id: 7,
+          name: "minh",
+        },
+      ];
+      // tìm kiếm trong mảng users có phần tử id = 6 không
+      let reuslt = users.findIndex((item, index, arr) => {
+        return item.id === 6;
+      });
+      console.log("111", reuslt);
+    </script>
+  </body>
+</html>

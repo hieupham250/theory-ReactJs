@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            reduce: thường dùng để thực hiện việc tính toán  
+        */
+       let carts = [
+        {
+            product: "iphone",
+            price: 5000,
+            qantity: 5
+        },
+        {
+            product: "iphone6",
+            price: 7000,
+            qantity: 5
+        },
+        {
+            product: "iphone5",
+            price: 8000,
+            qantity: 5
+        },
+       ]
+       let sum = 0;
+       for(let i=0;i< carts;i++){
+            sum += carts[i].price * carts[i].qantity
+       }
+       console.log(sum);
+
+       // dùng reduce
+       let reduce = carts.reduce((acc, value, arr)=>{
+            return acc + value.price*value.qantity
+       })
+       console.log(reduce);
+    </script>
+</body>
+</html>

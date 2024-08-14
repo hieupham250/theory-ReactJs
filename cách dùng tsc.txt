@@ -1,0 +1,1 @@
+npm install -g typescript (cài trong thư mục gốc) => tsc --init => tsc --watch

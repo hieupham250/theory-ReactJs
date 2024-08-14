@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+            duyệt các phần tử trong mảng
+            tạo ra mảng mới
+            tạo mảng mới với số phần tử bằng số phần tử mảng ban đầu
+        */
+      let array = [4, 5, 6];
+      let result = array.map((item, index, arr) => {
+        // console.log("item",item);
+        // console.log("index",index);
+        // console.log("arr",arr);
+        return item * 2;
+      });
+      console.log("111", result);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const employees = [
+        {
+          name: "Nguyễn Văn A",
+          age: 21,
+        },
+        {
+          name: "Nguyễn Văn B",
+          age: 30,
+        },
+        {
+          name: "Nguyễn Văn C",
+          age: 19,
+        },
+      ];
+
+      function sortEmployees(employees, sortType) {
+        if (sortType === "Increase") {
+          employees.sort((a, b) => a.age - b.age);
+        } else if (sortType === "Decrease") {
+          employees.sort((a, b) => b.age - a.age);
+        } else {
+          console.log("Kiểu sắp xếp không hợp lệ");
+          return;
+        }
+        employees.forEach((employee) => {
+          console.log(`Tên: ${employee.name}, Tuổi: ${employee.age}`);
+        });
+      }
+      console.log("Sắp xếp giảm dần theo tuổi:");
+      sortEmployees(employees, "Decrease");
+      console.log("\nSắp xếp tăng dần theo tuổi:");
+      sortEmployees(employees, "Increase");
+    </script>
+  </body>
+</html>

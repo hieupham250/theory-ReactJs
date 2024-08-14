@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function extractUniqueHobbies(users) {
+        let uniqueHobbies = {};
+        users.forEach((user) => {
+          user.hobbies.forEach((hobby) => {
+            uniqueHobbies[hobby] = true;
+          });
+        });
+        return Object.keys(uniqueHobbies);
+      }
+      let users = [
+        { id: 1, name: "Alice", hobbies: ["Reading", "Drawing"] },
+        { id: 2, name: "Bob", hobbies: ["Gaming", "Cooking", "Reading"] },
+      ];
+
+      let result = extractUniqueHobbies(users);
+      console.log(result);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function sumArrays(...arrays) {
+        let sums = arrays.map((array) =>
+          array.reduce((acc, val) => acc + val, 0)
+        );
+        return sums;
+      }
+
+      const result = sumArrays([1, 2], [6, 7, 8], [12, 8]);
+      console.log(result);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let answer = prompt("nhập id sách cần tìm:");
+      let books = [
+        {
+          id: 1,
+          name: "Tôi thấy hoa vàng trên cỏ xanh",
+        },
+        {
+          id: 3,
+          name: "Đắc nhân tâm",
+        },
+        {
+          id: 2,
+          name: "Dế mèn",
+        },
+      ];
+      let result = books.find((item) => {
+        return item.id == answer;
+      });
+      if(result) {
+        console.log(result);
+      } else {
+        console.log("không tìm thấy");
+      }
+    </script>
+  </body>
+</html>
